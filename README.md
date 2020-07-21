@@ -1,2 +1,6 @@
-# projetos_IAI
-Repositório pra projetos de IAI.
+# Projetos de Agentes Inteligentes
+
+Repositório com projetos de agentes inteligentes em Python e Processing.  
+ 
+
+
