@@ -1,6 +1,6 @@
 from cell import Cell
 from grid import create_adj_list
-from search_module import breadth_first_graph_search, depth_first_search
+from search_module import breadth_first_graph_search, depth_first_search, uniform_cost_search
 from astar_search_module import astar_search
 from greedy_search_module import greedy_dijkstra_search
 
@@ -15,15 +15,19 @@ import heapq
 # Number of columns and rows in the grid
 nCols = 20;
 nRows = 20;
-nObstaculos = 50
+nObstaculos = 60
 tam_cell = 20
 busca_finalizada = False
 
 start = (0,0)
 target = (15,11)
 
+#start = (random.randint(0,5),random.randint(0,5))
+#target =  (random.randint(10,20),random.randint(10,20))
+
 matrix_adjc = {}
 matrix=[]
+count=0
 
 #######################################
 # Inicializando 
@@ -39,11 +43,14 @@ def setup():
        
     
     #size(400, 400)
-    size(nCols * tam_cell, nRows * tam_cell)
-    grid = makeGrid(start, target)
-    drawGrid()
-    caminho_final = inicia_busca()
+    size(nCols * tam_cell, nRows * tam_cell + 1)
     
+    #grid = makeGrid(start, target)
+    #makeGrid(start, target)
+    #drawGrid()
+    #caminho_final = inicia_busca()
+    #background(255)
+    #abertura()
  
 ##################################
 # Atualizando a tela
@@ -52,16 +59,22 @@ def draw():
 
     global nCols, nRows, grid
     global busca_finalizada
+    global grid
        
-    #background(0)
-    
-    drawGrid()
-    
-    # iniciando a busca
-    #caminho_final = inicia_busca()
-    #draw_path(caminho_final)
-    
-    # delay()    
+    try:
+        #makeGrid(start, target)
+        
+        makeGrid()
+        #delay(120000000)
+        caminho_final = inicia_busca()
+    except:
+        pass
+        #print("Nenhum caminho encontrado!")
+    else:
+        drawGrid()
+        delay(800)
+        
+    #noLoop()
 
 
 #########################
@@ -81,7 +94,10 @@ def inicia_busca():
     #caminho_final = breadth_first_graph_search(matrix_adjc, start, target)
     
     # busca em profundidade (funcionando)
-    # caminho_final = depth_first_search(matrix_adjc, start, target)
+    #caminho_final = depth_first_search(matrix_adjc, start, target)
+    
+    # busca de custo uniforme
+    #caminho_final = uniform_cost_search(matrix_adjc, start, target)
     
     # busca em Astar (funcionando)
     #caminho_final = astar_search(matrix, 1, start, target, nRows, nCols)
@@ -96,7 +112,7 @@ def inicia_busca():
     caminho_final.pop()
     
     #drawGrid()
-    delay(600)
+    delay(800)
     
     print(caminho_final)
     draw_path(caminho_final)
@@ -109,21 +125,26 @@ def inicia_busca():
 def draw_path(caminho):
     global grid
     for i,j in caminho:
-        grid[i][j]= Cell(i * tam_cell, j * tam_cell, tam_cell, tam_cell, cor=(255, 204, 0), type="move")
+        grid[i][j].cor = (255, 221, 153)
+        #grid[i][j]= Cell(i * tam_cell, j * tam_cell, tam_cell, tam_cell, cor=(255, 204, 0), type="move")
+    # 255, 204, 0
+    drawGrid()
     
 ################################################
 # Criando um grid   
 # Creates a 2D List of 0's, nCols x nRows large
 ################################################
-def makeGrid(start, target):
+#def makeGrid(start, target):
+def makeGrid():
     global nCols, nRows
     global matrix_adjc
     global grid
     global nObstaculos
     global matrix
+    global start, target
     
     # criando a matriz
-    #matrix = []
+    matrix = []
     for i in xrange(nRows):
         # Create an empty list for each row
         matrix.append([])
@@ -138,10 +159,9 @@ def makeGrid(start, target):
         y = random.randint(0,nCols-1) #index Y
         matrix[x][y] = 1
     
-    # set agent
-    #matrix[start[0]][start[1]] = 0#2   
-    # target 
-    #matrix[target[0]][target[1]] = 0#3
+    start = (random.randint(0,10),random.randint(0,10))
+    target =  (random.randint(10,20),random.randint(10,20))
+
     
     matrix_adjc = create_adj_list(matrix)
                                     
@@ -185,21 +205,17 @@ def makeGrid(start, target):
                                   tam_cell, 
                                   tam_cell,
                                   type="block",
-                                  cor=(153, 153, 102))     
+                                  cor=(217, 217, 217))
+                                  #cor=(153, 153, 102))
+                     
     
     # ajustando cor de inicio / fim
     grid[start[0]][start[1]].cor = (102, 153, 153)
     grid[target[0]][target[1]].cor = (0, 153, 51)
     
     
-    drawGrid()
+    #drawGrid()
     
-    print("distancias")
-    
-    print(grid[start[0]][start[1]].x, grid[start[0]][start[1]].y)    
-    print(grid[target[0]][target[1]].x, grid[target[0]][target[1]].y)
-    print(int(dist(grid[start[0]][start[1]].x, grid[start[0]][start[1]].y,grid[target[0]][target[1]].x, grid[target[0]][target[1]].y)))         
-                    
     return grid
 
 
@@ -207,8 +223,7 @@ def makeGrid(start, target):
 # Desenha o grid
 ####################
 def drawGrid():
-    
-    #global grid
+    global grid
     background(0)
     for i in xrange(nCols): #nCols
         for j in xrange(nRows): #nRows

@@ -13,6 +13,9 @@ class Cell():
     def display(self):
         #print("vamos preencher")
         #print(self.cor)
-        stroke(0)
+        #stroke(0)
+        stroke(153, 153, 153)
+        
+        #stroke(255)
         fill(self.cor[0], self.cor[1], self.cor[2])
         rect(self.x, self.y, self.w, self.h)

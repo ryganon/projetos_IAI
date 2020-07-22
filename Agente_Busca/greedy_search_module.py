@@ -25,8 +25,8 @@ class GreedyPriorityQueue:
         return heapq.heappop(self.elements)[1]
 
 ###################################################
-#
-#
+# Implementacao simples do algoritmo de Dijkstra
+###################################################
 def greedy_dijkstra_search(graph, start, target):
     queue = GreedyPriorityQueue()
     queue.put(start, 0)
@@ -50,10 +50,13 @@ def greedy_dijkstra_search(graph, start, target):
                 queue.put(next, priority)
                 path[next] = current
 
-    return get_path(path, start, target)
+    result = get_path(path, start, target)
+    print("Caminho final:", result)
+    return result
+    #return get_path(path, start, target)
     #return path, cost
 
-
+# retornando o caminho final
 def get_path(result, start, goal):
     current = goal
     path = []
