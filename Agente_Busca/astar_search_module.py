@@ -4,6 +4,7 @@
 # 
 # Adaptations were made to integrate with the Processing platform.
 ##################################################################################
+
 class Node:
     def __init__(self, parent=None, position=None):
         self.parent = parent
@@ -151,8 +152,7 @@ def astar_search(matrix, cost, start, target, no_rows, no_columns):
     
     #path = search(matrix, cost, start, target)
     path = search(matrix, cost, start, target, no_rows, no_columns)
-    print("nada aquiiii")
-    print(path)
+    #print(path)
     caminho_final = []
     #nRows, nCols = np.array(path).shape
 

@@ -2,17 +2,20 @@ from cell import Cell
 from grid import create_adj_list
 from search_module import breadth_first_graph_search, depth_first_search
 from astar_search_module import astar_search
+from greedy_search_module import greedy_dijkstra_search
+
 from copy import copy, deepcopy
 
 import random
 from pprint import pprint
+import heapq
 
 # https://py.processing.org/tutorials/2dlists/
 
 # Number of columns and rows in the grid
 nCols = 20;
 nRows = 20;
-nObstaculos = 30
+nObstaculos = 50
 tam_cell = 20
 busca_finalizada = False
 
@@ -41,7 +44,6 @@ def setup():
     drawGrid()
     caminho_final = inicia_busca()
     
-    print("aaa",caminho_final)
  
 ##################################
 # Atualizando a tela
@@ -70,7 +72,7 @@ def inicia_busca():
     global start, target
     global nRows, nCols
     global matrix
-    
+        
     # converte a matriz em lista de adjacencias
     #grid_adj_list = create_adj_list(grid)
     #pprint(grid_adj_list)
@@ -79,10 +81,13 @@ def inicia_busca():
     #caminho_final = breadth_first_graph_search(matrix_adjc, start, target)
     
     # busca em profundidade (funcionando)
-    #caminho_final = depth_first_search(matrix_adjc, start, target)
+    # caminho_final = depth_first_search(matrix_adjc, start, target)
     
-    # busca em astar
+    # busca em Astar (funcionando)
     #caminho_final = astar_search(matrix, 1, start, target, nRows, nCols)
+    
+    # busca Greedy Dijkstra (funcionando)
+    caminho_final = greedy_dijkstra_search(matrix_adjc, start, target)
     
     
     #print(caminho_final)
@@ -187,8 +192,16 @@ def makeGrid(start, target):
     grid[target[0]][target[1]].cor = (0, 153, 51)
     
     
-    drawGrid()            
+    drawGrid()
+    
+    print("distancias")
+    
+    print(grid[start[0]][start[1]].x, grid[start[0]][start[1]].y)    
+    print(grid[target[0]][target[1]].x, grid[target[0]][target[1]].y)
+    print(int(dist(grid[start[0]][start[1]].x, grid[start[0]][start[1]].y,grid[target[0]][target[1]].x, grid[target[0]][target[1]].y)))         
+                    
     return grid
+
 
 ####################
 # Desenha o grid
