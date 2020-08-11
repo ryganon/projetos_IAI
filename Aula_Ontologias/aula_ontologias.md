@@ -11,7 +11,7 @@ Alunos:
 
 # Lista de materiais
 
-### Materiais de aulas on-line
+### :globe_with_meridians: Materiais de aulas on-line
 
 **Ontologias MIT (excelente material):**
 * https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-871-knowledge-based-applications-systems-spring-2005/lecture-notes/lect22_ontolog.pdf
@@ -32,7 +32,7 @@ Paper: SALEM, Abdel-Badeeh M.; CAKULA, Sarma. Using ontological engineering for 
 * https://www.researchgate.net/publication/233985231_Using_Ontological_Engineering_for_Developing_Web-Based_AI_Ontology
 
 
-# Referências de sistemas e especificações 
+# :mag: Referências de sistemas e especificações 
 
 **RDF**
 > “RDF is a directed, labeled graph data format for representing information in the Web. This specification defines the syntax and semantics of the SPARQL query language for RDF. SPARQL can be used to express queries across diverse data sources, whether the data is stored natively as RDF or viewed as RDF via middleware. SPARQL contains capabilities for querying required and optional graph patterns along with their conjunctions and disjunctions. SPARQL also supports extensible value testing and constraining queries by source RDF graph. The results of SPARQL queries can be results sets or RDF graphs. “
@@ -41,7 +41,10 @@ Paper: SALEM, Abdel-Badeeh M.; CAKULA, Sarma. Using ontological engineering for 
 **Sparql**
 * https://www.w3.org/TR/rdf-sparql-query/
 
-# Referências de manuais e códigos
+**GraphDB**
+* http://graphdb.ontotext.com/
+
+# :books: Referências de manuais e códigos
 
 ### Exemplos de uso de leitura de RDF com SPARQL
 
@@ -73,7 +76,7 @@ Protégé, uma ferramenta open-source para gerenciamento de ontologias:
 * https://protege.stanford.edu/
 
 
-# Como criar um setup para gravação de aulas
+# :clapper: Como criar um setup para gravação de aulas
 
 Para a gravação da aula utilizamos os seguintes recursos:
 * Um smartphone para fazer gravar quem está narrando o vídeo.
