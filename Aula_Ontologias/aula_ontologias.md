@@ -1,4 +1,4 @@
-# Aula sobre Ontologias
+# :school: Aula sobre Ontologias
 
 Aula sobre ontologias para a disciplina de Introdução aos Agentes Inteligentes.
 
@@ -9,9 +9,9 @@ Alunos:
 * Arthur Carvalho
 
 
-# Lista de materiais
+# :globe_with_meridians: Lista de materiais
 
-### :globe_with_meridians: Materiais de aulas on-line
+###  Materiais de aulas on-line
 
 **Ontologias MIT (excelente material):**
 * https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-871-knowledge-based-applications-systems-spring-2005/lecture-notes/lect22_ontolog.pdf
