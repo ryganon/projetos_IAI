@@ -1,6 +1,8 @@
 # :school: Aula sobre Ontologias
 
-Aula sobre ontologias para a disciplina de Introdução aos Agentes Inteligentes.
+Nesse vídeo apresentaremos uma introdução sobre Ontologias.
+Essa atividade é parte da disciplina de **Introdução aos Agentes Inteligentes** da Pós-graduação em 
+Ciências da Computação do Centro de Informática da Universidade Federal de Pernambuco.
 
 ## Grupo 6
 
