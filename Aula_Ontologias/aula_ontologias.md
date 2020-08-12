@@ -102,9 +102,15 @@ Uma ferramenta também open-source para edição de som.
 
 ### O processo de gravação
 Resumindo, a gravação da aula foi realizada com o uso simultâneo de um smartphone para gravar o apresentador enquanto
-a tela do sistema operacional era gravada com o Kazam. Para exibir o conteúdo utilizamos o Google Slides.
+a tela do sistema operacional era gravada com o Kazam. 
+
+Para exibir o conteúdo utilizamos o Google Slides.
 
 Após a etapa de gravação da explicação, os arquivos de vídeo do smartphone e do Kazam eram editados no Shotcut.
+
+Obrigado!
+
+Danilo Lucena
 
 
  
